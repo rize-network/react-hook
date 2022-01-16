@@ -1,21 +1,11 @@
-<img alt="React Hook" src="assets/logo.png" width="1050"/>
 
-[![Battle Tested ✅](https://img.shields.io/badge/-Battle--Tested%20%E2%9C%85-03666e?style=for-the-badge)](https://github.com/WrathChaos/react-hook)
+# React Hook
 
-[![React Hook](https://img.shields.io/badge/-Extremely%20easy%20to%20create%20a%20React%20Native%20Component%20Library%20with%20both%20Stateful%20and%20Functional%20Component%20Examples-orange?style=for-the-badge)](https://github.com/WrathChaos/react-hook)
-
-[![npm version](https://img.shields.io/npm/v/react-hook.svg?style=for-the-badge)](https://www.npmjs.com/package/react-hook)
-[![npm](https://img.shields.io/npm/dt/react-hook.svg?style=for-the-badge)](https://www.npmjs.com/package/react-hook)
-![Platform - Android and iOS](https://img.shields.io/badge/platform-Android%20%7C%20iOS-blue.svg?style=for-the-badge)
+[![npm version](https://img.shields.io/npm/v/react-hook.svg?style=for-the-badge)](https://www.npmjs.com/package/@app-studio/react-hook)
+[![npm](https://img.shields.io/npm/dt/@app-studio/react-hook.svg?style=for-the-badge)](https://www.npmjs.com/package/@app-studio/react-hook)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=for-the-badge)](https://github.com/prettier/prettier)
 
-
-[![CI status][github-action-image]][github-action-url] [![codecov][codecov-image]][codecov-url] [![NPM version][npm-image]][npm-url] [![NPM downloads][download-image]][download-url]
-
-[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
-
-[![Follow Twitter][twitter-image]][twitter-url] [![FOSSA Status][fossa-image]][fossa-url] [![Discussions][discussions-image]][discussions-url] [![][issues-helper-image]][issues-helper-url] [![Issues need help][help-wanted-image]][help-wanted-url]
 
 [npm-image]: http://img.shields.io/npm/v/rize-network.svg?style=flat-square
 [npm-url]: http://npmjs.org/package/rize-network
