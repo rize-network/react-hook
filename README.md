@@ -11,31 +11,20 @@
 [npm-url]: http://npmjs.org/package/rize-network
 [github-action-image]: https://github.com/rize-network/react-hook/workflows/%E2%9C%85%20test/badge.svg
 [github-action-url]: https://github.com/rize-network/react-hook/actions?query=workflow%3A%22%E2%9C%85+test%22
-[codecov-image]: https://img.shields.io/codecov/c/github/rize-network/react-hook/master.svg?style=flat-square
-[codecov-url]: https://codecov.io/gh/rize-network/react-hook/branch/master
+
 [download-image]: https://img.shields.io/npm/dm/rize-network.svg?style=flat-square
 [download-url]: https://npmjs.org/package/rize-network
-[lgtm-image]: https://flat.badgen.net/lgtm/alerts/g/rize-network/react-hook
-[lgtm-url]: https://lgtm.com/projects/g/rize-network/react-hook/alerts/
-[fossa-image]: https://app.fossa.io/api/projects/git%2Bgithub.com%2Freact-hook%2Freact-hook.svg?type=shield
-[fossa-url]: https://app.fossa.io/projects/git%2Bgithub.com%2Freact-hook%2Freact-hook?ref=badge_shield
+
 [help-wanted-image]: https://flat.badgen.net/github/label-issues/rize-network/react-hook/help%20wanted/open
 [help-wanted-url]: https://github.com/rize-network/react-hook/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22
-[twitter-image]: https://img.shields.io/twitter/follow/rize-networkesignUI.svg?label=Ant%20Design&style=social
-[twitter-url]: https://twitter.com/rize-networkesignUI
+
 [discussions-image]: https://img.shields.io/badge/discussions-on%20github-blue?style=flat-square
 [discussions-url]: https://github.com/rize-network/react-hook/discussions
-[bundlesize-js-image]: https://img.badgesize.io/https:/unpkg.com/rize-network/dist/rize-network.min.js?label=rize-network.min.js&compression=gzip&style=flat-square
-[bundlesize-css-image]: https://img.badgesize.io/https:/unpkg.com/rize-network/dist/rize-network.min.css?label=rize-network.min.css&compression=gzip&style=flat-square
-[unpkg-js-url]: https://unpkg.com/browse/rize-network/dist/rize-network.min.js
-[unpkg-css-url]: https://unpkg.com/browse/rize-network/dist/rize-network.min.css
+
 [issues-helper-image]: https://img.shields.io/badge/using-issues--helper-orange?style=flat-square
 [issues-helper-url]: https://github.com/actions-cool/issues-helper
-[renovate-image]: https://img.shields.io/badge/renovate-enabled-brightgreen.svg?style=flat-square
-[renovate-dashboard-url]: https://github.com/rize-network/react-hook/issues/32498
 
 
-[![Renovate status][renovate-image]][renovate-dashboard-url] [![Total alerts][lgtm-image]][lgtm-url] [![][bundlesize-js-image]][unpkg-js-url] [![][bundlesize-css-image]][unpkg-css-url]
 
 
 ## ✨ Features
