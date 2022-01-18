@@ -1,34 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { enquireScreen } from 'enquire-js';
+import { useMount } from './useMount';
 
-type Subscriber = () => void;
+export type ScreenResponsiveConfig = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
-const subscribers = new Set<Subscriber>();
-
-type ResponsiveConfig = Record<
-  string,
+export type ResponsiveConfig = Record<
+  ScreenResponsiveConfig,
   {
-    /**
-     * >=
-     */
     min: number;
-    /**
-     * <
-     */
     max: number;
   }
 >;
-interface ResponsiveInfo {
-  screen: string;
-  size: {
-    height: number;
-    width: number;
-  };
-  // [key: string]: boolean;
+
+export interface ResponsiveInfo {
+  screen: ScreenResponsiveConfig;
 }
 
-let info: ResponsiveInfo;
-
-let responsiveConfig: ResponsiveConfig = {
+export const responsiveConfig: ResponsiveConfig = {
   xs: {
     min: -Infinity,
     max: 576,
@@ -55,79 +43,36 @@ let responsiveConfig: ResponsiveConfig = {
   },
 };
 
-function init() {
-  if (info) {
-    return;
-  }
-  info = {
-    size: {
-      height: 0,
-      width: 0,
-    },
-    screen: 'xs',
-  };
-  calculate();
-  window.addEventListener('resize', () => {
-    const oldInfo = info;
-    calculate();
-    if (oldInfo === info) {
-      return;
-    }
-    for (const subscriber of subscribers) {
-      subscriber();
-    }
-  });
-}
+export type ScreenConfig = {
+  screen: ScreenResponsiveConfig;
+  orientation: 'landscape' | 'portrait';
+};
 
-function calculate() {
-  const width = window.innerWidth;
-  const height = window.innerHeight;
-  const newInfo = {
-    size: {
-      width,
-      height,
-    },
-  } as ResponsiveInfo;
-  let shouldUpdate = false;
-  let curResponsive;
-  for (const key of Object.keys(responsiveConfig)) {
-    curResponsive = responsiveConfig[key];
-    if (width >= curResponsive.min && width < curResponsive.max) {
-      newInfo.screen = key;
-      shouldUpdate = true;
-      break;
-    }
-  }
-
-  if (
-    shouldUpdate ||
-    newInfo.size.width !== info.size.width ||
-    newInfo.size.height !== info.size.height
-  ) {
-    info = newInfo;
-  }
-}
-
-export function configResponsive(config: ResponsiveConfig) {
-  responsiveConfig = config;
-  if (info) {
-    calculate();
-  }
-}
-
+const defaultScreenConfig: ScreenConfig = {
+  screen: 'xs',
+  orientation: 'portrait',
+};
 export function useResponsive() {
-  init();
-  const [state, setState] = useState<ResponsiveInfo>(info);
+  const [screen, setScreen] = useState('md');
+  const [orientation, setOrientation] = useState(
+    defaultScreenConfig.orientation,
+  );
 
-  useEffect(() => {
-    const subscriber = () => {
-      setState(info);
-    };
-    subscribers.add(subscriber);
-    return () => {
-      subscribers.delete(subscriber);
-    };
-  }, []);
+  useMount(() => {
+    for (const key of Object.keys(responsiveConfig)) {
+      const sizeScreen = responsiveConfig[key];
+      enquireScreen(() => {
+        setScreen(key as ScreenResponsiveConfig);
+      }, `only screen ${sizeScreen.min && sizeScreen.min >= 0 ? 'and (min-width:' + sizeScreen.min + 'px)' : ''} ${sizeScreen.max && sizeScreen.max >= 0 && sizeScreen.max < Infinity ? 'and (max-width:' + sizeScreen.max + 'px)' : ''}`);
+    }
 
-  return state;
+    enquireScreen(() => {
+      setOrientation('landscape');
+    }, 'only screen and (orientation: landscape)');
+    enquireScreen(() => {
+      setOrientation('portrait');
+    }, 'only screen and (orientation: portrait)');
+  });
+
+  return { screen, orientation };
 }
