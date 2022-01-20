@@ -7,7 +7,7 @@ export const usePaginationRequest = (
   optionsParams: any,
   urlParams?: string,
   onChange?: any,
-  location?: any,
+  location?: any
 ) => {
   const [params, setParams] = useState(optionsParams);
 
@@ -79,8 +79,8 @@ export const usePaginationRequest = (
 
   const handleChange = (
     tablePagination: any,
-    tableFilters: any,
-    tableSorter: any,
+    //tableFilters: any,
+    tableSorter: any
   ) => {
     // console.log({tablePagination, tableFilters, tableSorter});
     // setParams({...params, ...tableFilters});
@@ -101,7 +101,7 @@ export const usePaginationRequest = (
     });
   };
 
-  const handlePageSizeChange = (a: any, pageSize: number) => {
+  const handlePageSizeChange = (pageSize: number) => {
     setPagination({ current: 1, pageSize });
   };
 

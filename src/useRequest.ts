@@ -7,12 +7,12 @@ export type UseRequestOption = {
 
 export function useRequest(
   service: any,
-  options = {},
+  options = {}
 ): {
   run: any;
   data: any;
   loading: boolean;
-  error?: Error;
+  error?: Error| null | undefined;
   params?: any;
 } {
   const [data, setData] = useState(undefined);
@@ -20,7 +20,7 @@ export function useRequest(
   const [loading, setLoading] = useState(false);
   const [error, setError]: [
     Error | null | undefined,
-    React.Dispatch<React.SetStateAction<Error | null | undefined>>,
+    React.Dispatch<React.SetStateAction<Error | null | undefined>>
   ] = useState();
 
   const {

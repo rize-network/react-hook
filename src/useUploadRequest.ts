@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import _ from 'lodash';
-import { upload } from 'src/utils/upload';
+import { upload } from './utils/upload';
+import { debounce } from './utils/global';
 
-export const useUploadRequest = function (url, options = {}) {
+export const useUploadRequest = function (url: string, options: any = {}) {
   const [data, setData] = useState(undefined);
   const [file, setFile] = useState(undefined);
   const [progress, setProgress] = useState(0);
@@ -21,7 +21,7 @@ export const useUploadRequest = function (url, options = {}) {
     onError?: (e: Error) => void;
   } = options;
 
-  const run = _.debounce((newFile) => {
+  const run = debounce((newFile: any) => {
     setLoading(true);
     setProgress(0);
     setFile(newFile);
@@ -31,7 +31,7 @@ export const useUploadRequest = function (url, options = {}) {
       onProgress: (newProgress: number) => {
         setProgress(newProgress);
       },
-      onSuccess: (response) => {
+      onSuccess: (response: any) => {
         setError(undefined);
         setLoading(false);
         if (response.data && response.data !== undefined) {
@@ -39,7 +39,7 @@ export const useUploadRequest = function (url, options = {}) {
           onSuccess(response.data);
         }
       },
-      onFailure: (response) => {
+      onFailure: (response: any) => {
         setLoading(false);
         setError(response);
         onError(response);

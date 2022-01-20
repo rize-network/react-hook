@@ -4,13 +4,11 @@ import { useMount } from './useMount';
 
 export type ScreenResponsiveConfig = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
-export type ResponsiveConfig = Record<
-  ScreenResponsiveConfig,
-  {
-    min: number;
-    max: number;
-  }
->;
+export type ScreenSizeRange = {
+  min: number;
+  max: number;
+};
+export type ResponsiveConfig = Record<ScreenResponsiveConfig, ScreenSizeRange>;
 
 export interface ResponsiveInfo {
   screen: ScreenResponsiveConfig;
@@ -55,12 +53,14 @@ const defaultScreenConfig: ScreenConfig = {
 export function useResponsive() {
   const [screen, setScreen] = useState('md');
   const [orientation, setOrientation] = useState(
-    defaultScreenConfig.orientation,
+    defaultScreenConfig.orientation
   );
 
   useMount(() => {
     for (const key of Object.keys(responsiveConfig)) {
-      const sizeScreen = responsiveConfig[key];
+      const sizeScreen: ScreenSizeRange = responsiveConfig[
+        key as ScreenResponsiveConfig
+      ] as ScreenSizeRange;
       enquireScreen(() => {
         setScreen(key as ScreenResponsiveConfig);
       }, `only screen ${sizeScreen.min && sizeScreen.min >= 0 ? 'and (min-width:' + sizeScreen.min + 'px)' : ''} ${sizeScreen.max && sizeScreen.max >= 0 && sizeScreen.max < Infinity ? 'and (max-width:' + sizeScreen.max + 'px)' : ''}`);

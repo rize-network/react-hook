@@ -2,10 +2,11 @@
 .DS_Store
 
 # node.js
-node_modules/
-npm-debug.log
-yarn-error.log
-
+node_modules
+*.log
 #build
-dist/*
+dist
 .eslintcache
+
+.cache
+dist
