@@ -20,7 +20,11 @@ export const usePaginationRequest = (
     sortField: location && location.query.sortField,
     sortOrder: location && location.query.sortOrder,
   });
-  const { data = [], loading, run } = useRequest(service, {
+  const {
+    data = [],
+    loading,
+    run,
+  } = useRequest(service, {
     // onSuccess:()=>{
     // }
   });

@@ -12,7 +12,7 @@ export function useRequest(
   run: any;
   data: any;
   loading: boolean;
-  error?: Error| null | undefined;
+  error?: Error | null | undefined;
   params?: any;
 } {
   const [data, setData] = useState(undefined);
