@@ -2,7 +2,7 @@
   "name": "@app-studio/react-hook",
   "repository": "git@github.com:rize-network/react-hook.git",
   "author": "Steedmonteiro <steed@rize.network>",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "description": "React Hook",
   "main": "dist/index.js",
